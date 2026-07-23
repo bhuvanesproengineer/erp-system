@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "MiniERP Backend Service",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "nodemon --exec npx ts-node src/server.ts"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
