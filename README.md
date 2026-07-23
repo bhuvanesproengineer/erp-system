@@ -45,7 +45,7 @@ npm run dev
 ```
 ### Frontend URL
 
-https://erp-system-two-chi.vercel.app/
+https://erp-system-two-chi.vercel.app/login
 
 
 ### Frontend
