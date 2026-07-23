@@ -7,8 +7,15 @@ import challanRoutes from './routes/challanRoutes';
 
 const app: Application = express();
 
-// Middlewares
-app.use(cors());
+// Middlewares & CORS setup for production (Vercel)
+app.use(
+  cors({
+    origin: ['https://erp-system-two-chi.vercel.app', 'http://localhost:5173', 'http://localhost:3000', 'http://localhost:5000'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

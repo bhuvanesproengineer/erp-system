@@ -90,9 +90,14 @@ export const Login: React.FC = () => {
           </button>
         </form>
 
-        <div className="login-hint">
-          <p>Demo Login Credentials:</p>
-          <code>admin@minierp.com / password123</code>
+        <div className="login-hint" style={{ textAlign: 'left', fontSize: '0.85rem' }}>
+          <p style={{ fontWeight: 600, marginBottom: '4px' }}>Demo Test Credentials (Password: <code>password123</code>):</p>
+          <ul style={{ margin: 0, paddingLeft: '1.2rem', listStyleType: 'disc' }}>
+            <li><strong>Admin:</strong> <code>admin@minierp.com</code></li>
+            <li><strong>Sales:</strong> <code>sales@minierp.com</code></li>
+            <li><strong>Warehouse:</strong> <code>warehouse@minierp.com</code></li>
+            <li><strong>Accounts:</strong> <code>accounts@minierp.com</code></li>
+          </ul>
         </div>
       </div>
     </div>

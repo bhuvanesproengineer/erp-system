@@ -1,0 +1,727 @@
+{
+  "info": {
+    "_postman_id": "minierp-api-collection-v2.1",
+    "name": "MiniERP REST API Collection",
+    "description": "Complete Postman Collection (v2.1) for all existing endpoints in MiniERP Backend API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "System & Health",
+      "item": [
+        {
+          "name": "Root Status Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": ["{{baseUrl}}"],
+              "path": [""]
+            },
+            "description": "Check overall backend service active status."
+          },
+          "response": []
+        },
+        {
+          "name": "Server Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            },
+            "description": "Server activity and health status check."
+          },
+          "response": []
+        },
+        {
+          "name": "API Root Index",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api",
+              "host": ["{{baseUrl}}"],
+              "path": ["api"]
+            },
+            "description": "MiniERP API v1 root endpoint summary and directory."
+          },
+          "response": []
+        },
+        {
+          "name": "API Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            },
+            "description": "Detailed health check for API services."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"sales_agent\",\n  \"email\": \"sales@minierp.com\",\n  \"password\": \"password123\",\n  \"role\": \"Sales\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            },
+            "description": "Register a new user account with specified role (Admin, Sales, Warehouse, Accounts)."
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@minierp.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            },
+            "description": "Authenticate user with email & password to generate JWT access token."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Authenticated Profile (Me)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "me"]
+            },
+            "description": "Retrieve profile details of currently logged-in user."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Get All Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers?page=1&limit=10&search=&status=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" },
+                { "key": "search", "value": "" },
+                { "key": "status", "value": "" }
+              ]
+            },
+            "description": "Fetch paginated list of customers with optional search and status filter."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/search?q=Acme",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers", "search"],
+              "query": [
+                { "key": "q", "value": "Acme" }
+              ]
+            },
+            "description": "Quick search customer directory by keyword."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customer By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers", ":id"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Retrieve basic customer details by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customer Full Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/:id/details",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers", ":id", "details"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Retrieve deep customer analytics, order history, and follow-up notes."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Smith\",\n  \"companyName\": \"Global Logistics Inc\",\n  \"email\": \"jane.smith@globallogistics.com\",\n  \"phone\": \"+1-555-0188\",\n  \"address\": \"789 Warehouse Blvd, Suite 200\",\n  \"taxId\": \"TAX-445566\",\n  \"status\": \"Active\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customers",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers"]
+            },
+            "description": "Create a new customer account."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Smith-Doe\",\n  \"phone\": \"+1-555-0199\",\n  \"status\": \"Active\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers", ":id"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Update existing customer record."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers", ":id"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Delete a customer record."
+          },
+          "response": []
+        },
+        {
+          "name": "Add Customer Follow-up Note",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"note\": \"Discussed annual supply contract renewal.\",\n  \"contactPerson\": \"Jane Smith\",\n  \"followupDate\": \"2026-08-01\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/:id/followups",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers", ":id", "followups"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Record a new follow-up interaction note for a customer."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products & Inventory",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/products?page=1&limit=10&search=&category=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" },
+                { "key": "search", "value": "" },
+                { "key": "category", "value": "" }
+              ]
+            },
+            "description": "Fetch paginated catalog of products with search and category filtering."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/search?q=Chair",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", "search"],
+              "query": [
+                { "key": "q", "value": "Chair" }
+              ]
+            },
+            "description": "Search product catalog by name or SKU."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Low Stock Alert Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/low-stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", "low-stock"]
+            },
+            "description": "Retrieve list of products whose stock quantity is less than or equal to reorder level."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Product By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", ":id"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Fetch single product details by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"PROD-1002\",\n  \"name\": \"Adjustable Standing Desk\",\n  \"description\": \"Motorized height adjustable office desk\",\n  \"category\": \"Furniture\",\n  \"unit\": \"Pcs\",\n  \"price\": 499.99,\n  \"costPrice\": 320.00,\n  \"stockQuantity\": 20,\n  \"reorderLevel\": 5\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products"]
+            },
+            "description": "Create a new product entry in inventory catalog."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 479.99,\n  \"reorderLevel\": 8\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", ":id"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Update existing product details."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", ":id"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Delete a product from catalog."
+          },
+          "response": []
+        },
+        {
+          "name": "Add Stock Movement (Stock IN/OUT/ADJUSTMENT)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"IN\",\n  \"quantity\": 15,\n  \"reference\": \"PO-99120\",\n  \"notes\": \"Received vendor restock batch\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/:id/stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", ":id", "stock"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Record stock movement (IN, OUT, or ADJUSTMENT) for a product."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Stock Movement Audit Logs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/:id/movements",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", ":id", "movements"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Retrieve audit trail log of all historical stock movements for a product."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Sales Challans",
+      "item": [
+        {
+          "name": "Get All Sales Challans",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/challans?page=1&limit=10&search=&status=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "challans"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" },
+                { "key": "search", "value": "" },
+                { "key": "status", "value": "" }
+              ]
+            },
+            "description": "Fetch paginated list of sales delivery challans."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Sales Challans",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/challans/search?q=CH-",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "challans", "search"],
+              "query": [
+                { "key": "q", "value": "CH-" }
+              ]
+            },
+            "description": "Search sales challan records by challan number or customer."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Sales Challan By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/challans/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "challans", ":id"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Fetch sales delivery challan details with line items."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Sales Challan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": 1,\n  \"issueDate\": \"2026-07-23\",\n  \"notes\": \"Standard delivery shipment\",\n  \"items\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2,\n      \"unitPrice\": 249.99\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/challans",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "challans"]
+            },
+            "description": "Draft a new sales delivery challan with item details."
+          },
+          "response": []
+        },
+        {
+          "name": "Confirm Sales Challan (Dispatch Stock)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/challans/:id/confirm",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "challans", ":id", "confirm"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Confirm delivery challan, transitioning status to Confirmed and reducing product stock quantities."
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel Sales Challan",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/challans/:id/cancel",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "challans", ":id", "cancel"],
+              "variable": [
+                { "key": "id", "value": "1" }
+              ]
+            },
+            "description": "Cancel sales delivery challan."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://erp-system-zr2w.onrender.com",
+      "type": "string"
+    },
+    {
+      "key": "authToken",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

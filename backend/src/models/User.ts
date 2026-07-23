@@ -28,24 +28,32 @@ export const initUserTable = async (): Promise<void> => {
   `;
 
   await pool.query(createUsersTable);
-  await seedDefaultAdminUser();
+  await seedDefaultUsers();
 };
 
-export const seedDefaultAdminUser = async (): Promise<void> => {
+export const seedDefaultUsers = async (): Promise<void> => {
   try {
-    const adminEmail = 'admin@minierp.com';
-    const [rows] = await pool.query<RowDataPacket[]>('SELECT id FROM users WHERE email = ?', [adminEmail]);
+    const defaultUsers = [
+      { name: 'System Admin', email: 'admin@minierp.com', role: 'Admin' as UserRole },
+      { name: 'Sales Representative', email: 'sales@minierp.com', role: 'Sales' as UserRole },
+      { name: 'Warehouse Manager', email: 'warehouse@minierp.com', role: 'Warehouse' as UserRole },
+      { name: 'Accounts Officer', email: 'accounts@minierp.com', role: 'Accounts' as UserRole },
+    ];
 
-    if (rows.length === 0) {
-      const hashedPassword = await bcrypt.hash('password123', 10);
-      await pool.query<ResultSetHeader>(
-        'INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)',
-        ['System Admin', adminEmail, hashedPassword, 'Admin']
-      );
-      console.log('✅ Default Admin user seeded: admin@minierp.com / password123');
+    const hashedPassword = await bcrypt.hash('password123', 10);
+
+    for (const user of defaultUsers) {
+      const [rows] = await pool.query<RowDataPacket[]>('SELECT id FROM users WHERE email = ?', [user.email]);
+      if (rows.length === 0) {
+        await pool.query<ResultSetHeader>(
+          'INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)',
+          [user.name, user.email, hashedPassword, user.role]
+        );
+        console.log(`✅ Default ${user.role} user seeded: ${user.email} / password123`);
+      }
     }
   } catch (error) {
-    console.error('Error seeding default admin user:', error);
+    console.error('Error seeding default users:', error);
   }
 };
 
