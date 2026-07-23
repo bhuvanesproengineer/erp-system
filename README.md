@@ -43,6 +43,10 @@ cd backend
 npm install
 npm run dev
 ```
+### Frontend
+
+https://erp-system-two-chi.vercel.app/
+
 
 ### Frontend
 
