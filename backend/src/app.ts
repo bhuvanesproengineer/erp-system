@@ -12,9 +12,49 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Health Check
+// Root Active Status Check
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    status: 'active',
+    message: 'MiniERP Backend API Service is running',
+    timestamp: new Date().toISOString(),
+  });
+});
+
+// Health Checks
 app.get('/health', (req: Request, res: Response) => {
-  res.status(200).json({ success: true, message: 'Server is healthy' });
+  res.status(200).json({
+    success: true,
+    status: 'active',
+    message: 'Server is healthy and active',
+    timestamp: new Date().toISOString(),
+  });
+});
+
+app.get('/api', (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    status: 'active',
+    message: 'MiniERP API v1 Root Endpoint',
+    endpoints: {
+      health: '/health',
+      auth: '/api/auth',
+      products: '/api/products',
+      customers: '/api/customers',
+      challans: '/api/challans',
+    },
+    timestamp: new Date().toISOString(),
+  });
+});
+
+app.get('/api/health', (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    status: 'active',
+    message: 'API Service is healthy and active',
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // Routes
