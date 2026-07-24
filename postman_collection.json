@@ -16,8 +16,12 @@
             "header": [],
             "url": {
               "raw": "{{baseUrl}}/",
-              "host": ["{{baseUrl}}"],
-              "path": [""]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
             },
             "description": "Check overall backend service active status."
           },
@@ -30,8 +34,12 @@
             "header": [],
             "url": {
               "raw": "{{baseUrl}}/health",
-              "host": ["{{baseUrl}}"],
-              "path": ["health"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
             },
             "description": "Server activity and health status check."
           },
@@ -44,8 +52,12 @@
             "header": [],
             "url": {
               "raw": "{{baseUrl}}/api",
-              "host": ["{{baseUrl}}"],
-              "path": ["api"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api"
+              ]
             },
             "description": "MiniERP API v1 root endpoint summary and directory."
           },
@@ -58,8 +70,13 @@
             "header": [],
             "url": {
               "raw": "{{baseUrl}}/api/health",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "health"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "health"
+              ]
             },
             "description": "Detailed health check for API services."
           },
@@ -86,8 +103,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/register",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "register"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
             },
             "description": "Register a new user account with specified role (Admin, Sales, Warehouse, Accounts)."
           },
@@ -109,8 +132,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/login",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "login"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
             },
             "description": "Authenticate user with email & password to generate JWT access token."
           },
@@ -128,8 +157,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/auth/me",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "me"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
             },
             "description": "Retrieve profile details of currently logged-in user."
           },
@@ -152,13 +187,30 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/customers?page=1&limit=10&search=&status=",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "customers"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers"
+              ],
               "query": [
-                { "key": "page", "value": "1" },
-                { "key": "limit", "value": "10" },
-                { "key": "search", "value": "" },
-                { "key": "status", "value": "" }
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "search",
+                  "value": ""
+                },
+                {
+                  "key": "status",
+                  "value": ""
+                }
               ]
             },
             "description": "Fetch paginated list of customers with optional search and status filter."
@@ -177,10 +229,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/customers/search?q=Acme",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "customers", "search"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "search"
+              ],
               "query": [
-                { "key": "q", "value": "Acme" }
+                {
+                  "key": "q",
+                  "value": "Acme"
+                }
               ]
             },
             "description": "Quick search customer directory by keyword."
@@ -199,10 +260,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/customers/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "customers", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                ":id"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Retrieve basic customer details by ID."
@@ -221,10 +291,20 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/customers/:id/details",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "customers", ":id", "details"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                ":id",
+                "details"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Retrieve deep customer analytics, order history, and follow-up notes."
@@ -251,8 +331,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/customers",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "customers"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers"
+              ]
             },
             "description": "Create a new customer account."
           },
@@ -278,10 +363,19 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/customers/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "customers", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                ":id"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Update existing customer record."
@@ -300,10 +394,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/customers/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "customers", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                ":id"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Delete a customer record."
@@ -330,10 +433,20 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/customers/:id/followups",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "customers", ":id", "followups"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                ":id",
+                "followups"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Record a new follow-up interaction note for a customer."
@@ -357,13 +470,30 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/products?page=1&limit=10&search=&category=",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ],
               "query": [
-                { "key": "page", "value": "1" },
-                { "key": "limit", "value": "10" },
-                { "key": "search", "value": "" },
-                { "key": "category", "value": "" }
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "search",
+                  "value": ""
+                },
+                {
+                  "key": "category",
+                  "value": ""
+                }
               ]
             },
             "description": "Fetch paginated catalog of products with search and category filtering."
@@ -382,10 +512,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/products/search?q=Chair",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products", "search"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "search"
+              ],
               "query": [
-                { "key": "q", "value": "Chair" }
+                {
+                  "key": "q",
+                  "value": "Chair"
+                }
               ]
             },
             "description": "Search product catalog by name or SKU."
@@ -404,8 +543,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/products/low-stock",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products", "low-stock"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "low-stock"
+              ]
             },
             "description": "Retrieve list of products whose stock quantity is less than or equal to reorder level."
           },
@@ -423,10 +568,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/products/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                ":id"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Fetch single product details by ID."
@@ -453,8 +607,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/products",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
             },
             "description": "Create a new product entry in inventory catalog."
           },
@@ -480,10 +639,19 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/products/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                ":id"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Update existing product details."
@@ -502,10 +670,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/products/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                ":id"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Delete a product from catalog."
@@ -532,10 +709,20 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/products/:id/stock",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products", ":id", "stock"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                ":id",
+                "stock"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Record stock movement (IN, OUT, or ADJUSTMENT) for a product."
@@ -554,10 +741,20 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/products/:id/movements",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "products", ":id", "movements"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                ":id",
+                "movements"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Retrieve audit trail log of all historical stock movements for a product."
@@ -581,13 +778,30 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/challans?page=1&limit=10&search=&status=",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "challans"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "challans"
+              ],
               "query": [
-                { "key": "page", "value": "1" },
-                { "key": "limit", "value": "10" },
-                { "key": "search", "value": "" },
-                { "key": "status", "value": "" }
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "search",
+                  "value": ""
+                },
+                {
+                  "key": "status",
+                  "value": ""
+                }
               ]
             },
             "description": "Fetch paginated list of sales delivery challans."
@@ -606,10 +820,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/challans/search?q=CH-",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "challans", "search"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "challans",
+                "search"
+              ],
               "query": [
-                { "key": "q", "value": "CH-" }
+                {
+                  "key": "q",
+                  "value": "CH-"
+                }
               ]
             },
             "description": "Search sales challan records by challan number or customer."
@@ -628,10 +851,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/challans/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "challans", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "challans",
+                ":id"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Fetch sales delivery challan details with line items."
@@ -658,8 +890,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/challans",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "challans"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "challans"
+              ]
             },
             "description": "Draft a new sales delivery challan with item details."
           },
@@ -677,10 +914,20 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/challans/:id/confirm",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "challans", ":id", "confirm"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "challans",
+                ":id",
+                "confirm"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Confirm delivery challan, transitioning status to Confirmed and reducing product stock quantities."
@@ -699,10 +946,20 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/challans/:id/cancel",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "challans", ":id", "cancel"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "challans",
+                ":id",
+                "cancel"
+              ],
               "variable": [
-                { "key": "id", "value": "1" }
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             },
             "description": "Cancel sales delivery challan."
@@ -715,7 +972,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "https://erp-system-zr2w.onrender.com",
+      "value": "https://erp-8qg4.onrender.com",
       "type": "string"
     },
     {

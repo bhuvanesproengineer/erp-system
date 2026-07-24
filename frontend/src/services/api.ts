@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://erp-system-zr2w.onrender.com/api';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://erp-8qg4.onrender.com/api';
 
 const getHeaders = (): Record<string, string> => {
   const headers: Record<string, string> = {

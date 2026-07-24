@@ -6,7 +6,7 @@ This document contains full technical specifications for all existing 30 REST AP
 
 ## 🌐 Server Base URLs
 
-- **Production Base URL**: `https://erp-system-zr2w.onrender.com`
+- **Production Base URL**: `https://erp-8qg4.onrender.com`
 - **Local Base URL**: `http://localhost:5000`
 
 ---

@@ -5,11 +5,11 @@ This directory contains the Express.js REST API backend service for MiniERP.
 ## 🌐 Live Production Deployments
 
 - **Frontend Application (Vercel)**: `https://erp-system-two-chi.vercel.app`
-- **Backend API Service (Render)**: `https://erp-system-zr2w.onrender.com`
+- **Backend API Service (Render)**: `https://erp-8qg4.onrender.com`
 
 ## 🚀 Environment Variables & Base URL
 
-- **Production API Base URL**: `https://erp-system-zr2w.onrender.com`
+- **Production API Base URL**: `https://erp-8qg4.onrender.com`
 - **Local Development Base URL**: `http://localhost:5000`
 - **Authentication**: JWT Bearer Token passed via HTTP Header: `Authorization: Bearer <token>`
 

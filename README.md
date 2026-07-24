@@ -32,7 +32,7 @@ erp-system/
 ## Backend URL
 
 ```
-https://erp-system-zr2w.onrender.com
+https://erp-8qg4.onrender.com
 ```
 
 ## Run Locally
@@ -273,7 +273,7 @@ JWT_SECRET=your_jwt_super_secret_key_12345
 
 ### Frontend (`frontend/.env`)
 ```env
-VITE_API_URL=https://erp-system-zr2w.onrender.com/api
+VITE_API_URL=https://erp-8qg4.onrender.com/api
 ```
 
 ---
@@ -283,7 +283,7 @@ VITE_API_URL=https://erp-system-zr2w.onrender.com/api
 ### Live Deployments
 - **GitHub Repository**: `https://github.com/bhuvanesproengineer/erp-system`
 - **Frontend Application (Vercel)**: `https://erp-system-two-chi.vercel.app`
-- **Backend API Service (Render)**: `https://erp-system-zr2w.onrender.com`
+- **Backend API Service (Render)**: `https://erp-8qg4.onrender.com`
 
 ### Deployment Steps
 1. **Backend (Render / Railway)**:
@@ -296,7 +296,7 @@ VITE_API_URL=https://erp-system-zr2w.onrender.com/api
    - Root Directory: `frontend`
    - Build Command: `npm run build`
    - Output Directory: `dist`
-   - Set Environment Variable: `VITE_API_URL=https://erp-system-zr2w.onrender.com/api`
+   - Set Environment Variable: `VITE_API_URL=https://erp-8qg4.onrender.com/api`
 
 ---
 

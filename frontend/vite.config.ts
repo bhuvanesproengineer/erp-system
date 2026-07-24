@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://erp-system-zr2w.onrender.com',
+        target: 'https://erp-8qg4.onrender.com',
         changeOrigin: true,
       },
     },
